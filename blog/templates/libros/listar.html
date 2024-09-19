@@ -8,6 +8,14 @@
 </head>
 <body>
     <h1>ESTA PAGINA LISTA LOS LIBROS</h1>
-    <a href="{% url 'home' %}">VOVLER AL HOME</a>
+    <div>
+        {% for l in libros %}
+            <p>{{l.titulo}}</p>
+            <p>{{l.autor}}</p>
+            <p>{{l.fecha_publicacion}}</p>
+        {% endfor %}
+    </div>
+
+    <a href="{% url 'home' %}">VOLVER AL HOME</a>
 </body>
 </html>

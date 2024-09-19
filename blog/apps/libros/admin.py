@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Libro
+from .models import Libro,Autor
 
 class LibroAdmin(admin.ModelAdmin):
     list_display = ('titulo','fecha_publicacion',)
@@ -8,3 +8,4 @@ class LibroAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Libro, LibroAdmin)
+admin.site.register(Autor)
