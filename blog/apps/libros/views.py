@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 from .models import Libro, Autor
 
@@ -54,3 +54,19 @@ class ListarLibros_clase(ListView):
     template_name = 'libros/listar_clase.html'
     #POR DEFECTO, LOS OBJETOS SE PASAN AL TEMPLATE, 
     #BAJO UNA VARIABLE LLAMADA object_list
+
+# DETALLE DE UN LIBRO
+
+#VBF
+def DetalleLibro(request,pk):
+    libro = Libro.objects.get(pk = pk)
+    ctx = {}
+    ctx['libro'] = libro
+    return render (request,'libros/detalle.html',ctx)
+
+#VBC
+class DetalleLibro_clase(DetailView):
+    model = Libro
+    template_name = 'libros/detalle_clase.html'
+    #POR DEFECTO, LOS OBJETOS SE PASAN AL TEMPLATE, 
+    #BAJO UNA VARIABLE LLAMADA object

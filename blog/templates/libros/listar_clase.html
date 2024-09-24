@@ -10,9 +10,11 @@
     <h1>LISTA DE LIBROS CON LISTVIEW</h1>
     <div>
         {% for l in object_list %}
+            <img src="{{l.imagen.url}}" alt="">
             <p>{{l.titulo}}</p>
             <p>{{l.autor}}</p>
             <p>{{l.fecha_publicacion}}</p>
+            <p><a href="{% url 'libros:detalle_libro_clase' l.pk %}">VER MAS DETALLE</a></p>
         {% endfor %}
     </div>
 

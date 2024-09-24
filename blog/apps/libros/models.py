@@ -14,6 +14,7 @@ class Libro(models.Model):
     fecha_publicacion = models.DateField()
     isbn = models.CharField(max_length=13, unique=True)
     autor = models.ForeignKey(Autor,on_delete=models.CASCADE, null = True)
+    imagen = models.ImageField(upload_to='libros', null = True)
 
     def __str__(self):
         return self.titulo

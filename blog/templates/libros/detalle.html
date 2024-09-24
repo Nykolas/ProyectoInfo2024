@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIBROS - DETALLE</title>
+</head>
+<body>
+    <h1>{{libro.titulo}}</h1>
+    <div>
+        
+            <img src="{{libro.imagen.url}}" alt="">
+            <p>{{libro.titulo}}</p>
+            <p>{{libro.autor}}</p>
+            <p>{{libro.fecha_publicacion}}</p>
+            
+        
+    </div>
+
+    <a href="{% url 'libros:listar_libros' %}">VOLVER</a>
+</body>
+</html>
