@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic import ListView
 
 from .models import Libro, Autor
 
@@ -46,3 +47,10 @@ def ListarLibros(request):
     #la otra autores
     #y la otra fecha
     return render(request,'libros/listar.html',ctx)
+
+
+class ListarLibros_clase(ListView):
+    model = Libro
+    template_name = 'libros/listar_clase.html'
+    #POR DEFECTO, LOS OBJETOS SE PASAN AL TEMPLATE, 
+    #BAJO UNA VARIABLE LLAMADA object_list

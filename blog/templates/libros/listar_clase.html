@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIBROS - LISTAR</title>
+</head>
+<body>
+    <h1>LISTA DE LIBROS CON LISTVIEW</h1>
+    <div>
+        {% for l in object_list %}
+            <p>{{l.titulo}}</p>
+            <p>{{l.autor}}</p>
+            <p>{{l.fecha_publicacion}}</p>
+        {% endfor %}
+    </div>
+
+    <a href="{% url 'home' %}">VOLVER AL HOME</a>
+</body>
+</html>
