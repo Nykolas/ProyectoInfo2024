@@ -1,13 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BLOG</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body>
     <div>
-        <h3> HOLA SOY TU PRIMERA WEB </h3>
+        <h3 class="titulos"> HOLA SOY TU PRIMERA WEB </h3>
         <a href="{% url 'libros:listar_libros' %}">Listar libros - VBF</a>
         <a href="{% url 'libros:listar_libros_clase' %}">Listar libros - VBC</a>
     </div>
