@@ -1,14 +1,11 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIBROS - LISTAR</title>
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
-</head>
-<body>
-    <h1 class="titulos">ESTA PAGINA LISTA LOS LIBROS</h1>
+{% extends 'base.html' %}
+
+{% block titulo %}
+    LISTAR VBF
+{% endblock titulo %}
+
+{% block contenido %}
+    <h4>LISTAR LIBROS VBF</h4>
     <div>
         {% for l in libros %}
             <img src="{{l.imagen.url}}" alt="">
@@ -21,5 +18,5 @@
     </div>
 
     <a href="{% url 'home' %}">VOLVER AL HOME</a>
-</body>
-</html>
+
+{% endblock contenido%}

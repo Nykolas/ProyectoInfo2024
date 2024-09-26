@@ -3,3 +3,10 @@
     color:red;
     font-size: 2em;
 }
+
+.div-principal{
+    height: 200px;
+    padding: 50px;
+    text-align: center;
+    width: 1280px;
+}

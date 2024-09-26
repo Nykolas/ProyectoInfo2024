@@ -1,13 +1,11 @@
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIBROS - DETALLE</title>
-</head>
-<body>
-    <h1>{{libro.titulo}}</h1>
+{% block titulo %}
+    DETALLE VBF
+{% endblock titulo %}
+
+{% block contenido %}
+    <h4>{{libro.titulo}}</h4>
     <div>
         
             <img src="{{libro.imagen.url}}" alt="">
@@ -19,5 +17,5 @@
     </div>
 
     <a href="{% url 'libros:listar_libros' %}">VOLVER</a>
-</body>
-</html>
+
+{% endblock contenido %}
