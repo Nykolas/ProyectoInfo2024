@@ -5,9 +5,16 @@
 {% endblock titulo %}
 
 {% block contenido %}   
-    <div>
+    <div class="contenido">
         <h4>HOME</h4>
-        <a href="{% url 'libros:listar_libros' %}">Listar libros - VBF</a>
-        <a href="{% url 'libros:listar_libros_clase' %}">Listar libros - VBC</a>
+        <p>
+            En INFORMATORIO-LIRBOS, creemos que cada libro es una puerta a nuevos mundos, ideas y experiencias. 
+            Nuestra misión es acercarte a las mejores obras literarias, desde los clásicos 
+            imprescindibles hasta las últimas novedades, para que siempre encuentres algo que te inspire.
+             Ya seas un lector ávido, un curioso en busca de su próxima aventura o alguien que busca un regalo especial, 
+             aquí encontrarás una selección cuidadosamente curada que refleja la diversidad de la palabra escrita.
+            </p>
+            <p>Además, ofrecemos un ambiente acogedor para descubrir y disfrutar de la lectura, con actividades y eventos literarios para toda la comunidad. ¡Ven a explorar y deja que el próximo gran libro te encuentre!
+        </p>
     </div>
 {% endblock contenido %}

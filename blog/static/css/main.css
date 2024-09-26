@@ -10,3 +10,11 @@
     text-align: center;
     width: 1280px;
 }
+
+.menu{
+    display: inline;
+}
+
+.contenido{
+    padding: 0 100px 100px 100px;
+}

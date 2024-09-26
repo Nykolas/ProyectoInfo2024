@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
+from django.urls import reverse_lazy
 
 from .models import Libro, Autor
+from .forms import FormularioCrearLibro
 
 def ListarLibros(request):
 
@@ -70,3 +72,11 @@ class DetalleLibro_clase(DetailView):
     template_name = 'libros/detalle_clase.html'
     #POR DEFECTO, LOS OBJETOS SE PASAN AL TEMPLATE, 
     #BAJO UNA VARIABLE LLAMADA object
+
+#CREAR LIBRO
+
+class CrearLibro(CreateView):
+    model = Libro
+    template_name = 'libros/crear.html'
+    form_class = FormularioCrearLibro
+    success_url = reverse_lazy('libros:listar_libros')

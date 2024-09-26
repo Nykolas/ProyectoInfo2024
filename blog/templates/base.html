@@ -11,8 +11,10 @@
     <div class="div-principal">
         <img src="{% static 'img/logo.jpg' %}" alt="" width="150" height="150">
         
-        <ul>
-            <li><a href="{% url 'home' %}">HOME</a></li>
+        <ul >
+            <li class="menu"><a href="{% url 'home' %}">HOME</a></li>
+            <li class="menu"><a href="{% url 'libros:listar_libros' %}">LIBROS</a></li>
+            <li class="menu"><a href="{% url 'libros:crear_libro' %}">CREAR</a></li>
         </ul>
     </div>
 

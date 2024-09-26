@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+  CREAR
+{% endblock titulo %}
+
+{% block contenido %}
+
+    <h4>CREAR UN LIBRO</h4>
+
+    <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+        {{form.as_p }}
+
+        <button type="submit">CREAR</button>
+    </form>
+
+
+{% endblock contenido%}
