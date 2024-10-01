@@ -89,14 +89,14 @@ class CrearLibro(CreateView):
     model = Libro
     template_name = 'libros/crear.html'
     form_class = FormularioCrearLibro
-    success_url = reverse_lazy('libros:listar_libros')
+    success_url = reverse_lazy('libros:listar_libros',kwargs={'nombre': 'todos'},)
 
 class ModificarLibro(UpdateView):
     model = Libro
     template_name = 'libros/modificar.html'
     form_class = FormularioModificarLibro
-    success_url = reverse_lazy('libros:listar_libros')
+    success_url = reverse_lazy('libros:listar_libros',kwargs={'nombre': 'todos'},)
 
 class EliminarLibro(DeleteView):
     model = Libro
-    success_url = reverse_lazy('libros:listar_libros')
+    success_url = reverse_lazy('libros:listar_libros',kwargs={'nombre': 'todos'},)
