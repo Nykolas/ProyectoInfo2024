@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+  CREAR
+{% endblock titulo %}
+
+{% block contenido %}
+
+    <h4>MODIFICAR LIBRO: {{object.titulo}}</h4>
+
+    <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+        {{form.as_p }}
+
+        <button type="submit">MODIFICAR</button>
+    </form>
+
+
+{% endblock contenido%}

@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 from .models import Libro, Autor
-from .forms import FormularioCrearLibro
+from .forms import FormularioCrearLibro, FormularioModificarLibro
 
 def ListarLibros(request):
 
@@ -79,4 +79,14 @@ class CrearLibro(CreateView):
     model = Libro
     template_name = 'libros/crear.html'
     form_class = FormularioCrearLibro
+    success_url = reverse_lazy('libros:listar_libros')
+
+class ModificarLibro(UpdateView):
+    model = Libro
+    template_name = 'libros/modificar.html'
+    form_class = FormularioModificarLibro
+    success_url = reverse_lazy('libros:listar_libros')
+
+class EliminarLibro(DeleteView):
+    model = Libro
     success_url = reverse_lazy('libros:listar_libros')

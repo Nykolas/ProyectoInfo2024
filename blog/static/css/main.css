@@ -18,3 +18,12 @@
 .contenido{
     padding: 0 100px 100px 100px;
 }
+
+.item{
+    width:300px;
+    display: inline-block;
+}
+
+.listar{
+    width: 1280px;
+}

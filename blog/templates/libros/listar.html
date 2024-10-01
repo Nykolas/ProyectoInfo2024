@@ -6,17 +6,20 @@
 
 {% block contenido %}
     <h4>LISTAR LIBROS VBF</h4>
-    <div>
+    <div class="listar">
         {% for l in libros %}
-        <div class="menu">
-            <img src="{{l.imagen.url}}" alt="" width="150">
+        <div class="item">
+            <p><img src="{{l.imagen.url}}" alt="" width="150"></p>
             <p>{{l.titulo}}</p>
             <p>{{l.autor}}</p>
             <p>{{l.fecha_publicacion}}</p>
-            <p><a href="{% url 'libros:detalle_libro' l.pk %}">VER MAS DETALLE</a></p>
+            <p><a href="{% url 'libros:detalle_libro' l.pk %}">DETALLE</a></p>
+            <p><a href="{% url 'libros:modificar_libro' l.pk %}">MODIFICAR</a></p>
+            <p><a href="{% url 'libros:eliminar_libro' l.pk %}">ELIMINAR</a></p>
+        </div>
         {% endfor %}
         <br><br><br>
-    </div>
+        
     </div>
 
     <a href="{% url 'home' %}">VOLVER AL HOME</a>

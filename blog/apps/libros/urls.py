@@ -12,5 +12,8 @@ urlpatterns = [
     path('detalle_c/<int:pk>',views.DetalleLibro_clase.as_view(), name = 'detalle_libro_clase'),
 
     path('crear/', views.CrearLibro.as_view(), name = 'crear_libro'),
+    path('modificar/<int:pk>', views.ModificarLibro.as_view(), name = 'modificar_libro'),
+
+    path('eliminar/<int:pk>', views.EliminarLibro.as_view(), name = 'eliminar_libro'),
 
 ]
