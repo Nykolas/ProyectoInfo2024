@@ -5,6 +5,12 @@
 {% endblock titulo %}
 
 {% block contenido %}
+    <div class="sub-menu">
+        <a href="{% url 'libros:listar_libros' 'todos' %}">Todos</a>
+        {% for c in categorias %}
+            <a href="{% url 'libros:listar_libros' c.nombre %}">{{c.nombre}}</a>
+        {% endfor %}
+    </div>  
     <h4>LISTAR LIBROS VBF</h4>
     <div class="listar">
         {% for l in libros %}

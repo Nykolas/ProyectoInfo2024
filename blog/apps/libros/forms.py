@@ -13,4 +13,4 @@ class FormularioModificarLibro(forms.ModelForm):
 
     class Meta:
         model = Libro
-        fields = ('isbn','autor','imagen')
+        fields = ('isbn','autor','imagen','categoria')

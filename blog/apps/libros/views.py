@@ -2,10 +2,10 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
-from .models import Libro, Autor
+from .models import Libro, Autor, Categoria
 from .forms import FormularioCrearLibro, FormularioModificarLibro
 
-def ListarLibros(request):
+def ListarLibros(request, nombre):
 
     # EQUIVALENTE EN SQL A UN: SELECT * FROM Libro
     #todos = Libro.objects.all()
@@ -32,7 +32,13 @@ def ListarLibros(request):
     #a.delete()
 
     ctx = {}
-    todos = Libro.objects.all()
+
+    if nombre == 'todos':
+        todos = Libro.objects.all()
+    else:
+        cat = Categoria.objects.filter(nombre = nombre)
+        todos = Libro.objects.filter(categoria = cat[0])
+
     ctx['libros'] = todos   
 
     #EL TEMPLATE listar VA A RECIBIR UNA VARIABLE QUE SE LLAME 
@@ -48,6 +54,10 @@ def ListarLibros(request):
     #una variable se llamara libros
     #la otra autores
     #y la otra fecha
+    categorias = Categoria.objects.all()
+    ctx['categorias'] = categorias
+
+
     return render(request,'libros/listar.html',ctx)
 
 

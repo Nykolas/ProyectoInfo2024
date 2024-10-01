@@ -13,7 +13,7 @@
         
         <ul >
             <li class="menu"><a href="{% url 'home' %}">HOME</a></li>
-            <li class="menu"><a href="{% url 'libros:listar_libros' %}">LIBROS</a></li>
+            <li class="menu"><a href="{% url 'libros:listar_libros' 'todos' %}">LIBROS</a></li>
             <li class="menu"><a href="{% url 'libros:crear_libro' %}">CREAR</a></li>
         </ul>
     </div>
