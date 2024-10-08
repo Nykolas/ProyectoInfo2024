@@ -15,7 +15,18 @@
             <li class="menu"><a href="{% url 'home' %}">HOME</a></li>
             <li class="menu"><a href="{% url 'libros:listar_libros' 'todos' %}">LIBROS</a></li>
             <li class="menu"><a href="{% url 'libros:crear_libro' %}">CREAR</a></li>
-            <li class="menu"><a href="{% url 'usuarios:registro_usuario' %}">REGISTRAR</a></li>
+            
+
+            {% if user.is_authenticated %}
+                <li class="menu"><b>Welcome {{user.username}}</b></li>
+                <li class="menu"><a href="{% url 'usuarios:logout' %}">LOGOUT</a></li>
+            {% else %}
+                <li class="menu"><a href="{% url 'usuarios:registro_usuario' %}">REGISTRAR</a></li> 
+                <li class="menu"><a href="{% url 'usuarios:login' %}">LOGIN</a></li>
+            {% endif %}
+
+            
+
         </ul>
     </div>
 

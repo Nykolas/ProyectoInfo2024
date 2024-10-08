@@ -17,6 +17,12 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+# AUTH
+from django.urls import reverse_lazy
+LOGIN_REDIRECT_URL = reverse_lazy('home')
+LOGOUT_REDIRECT_URL = reverse_lazy('home')
+LOGIN_URL = reverse_lazy('usuarios:login')
+
 # Application definition
 
 INSTALLED_APPS = [

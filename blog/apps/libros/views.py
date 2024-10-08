@@ -89,6 +89,7 @@ class CrearLibro(CreateView):
     model = Libro
     template_name = 'libros/crear.html'
     form_class = FormularioCrearLibro
+    #success_url = reverse_lazy('libros:listar_libros'])
     success_url = reverse_lazy('libros:listar_libros',kwargs={'nombre': 'todos'},)
 
 class ModificarLibro(UpdateView):
