@@ -25,6 +25,12 @@
                 <li class="menu"><a href="{% url 'usuarios:login' %}">LOGIN</a></li>
             {% endif %}
 
+            {% if user.is_staff %}
+            {% endif %}
+
+            {% if user.is_superuser %}
+            {% endif %}
+
             
 
         </ul>

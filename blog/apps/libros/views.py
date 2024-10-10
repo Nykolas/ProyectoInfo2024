@@ -5,6 +5,21 @@ from django.urls import reverse_lazy
 from .models import Libro, Autor, Categoria
 from .forms import FormularioCrearLibro, FormularioModificarLibro
 
+#DECORADOR PARAUNA VBF QUE CONTROLA SI EL USUARIO ESTA LOGUEADO
+from django.contrib.auth.decorators import login_required
+
+#MIXINS PARA UNA VBC QUE CONTROLA SI EL USUARIO ESTA LOGUEADO
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+#MIXIN PARAUNA VBC PARA CONTROLAR EL TIPO DE USUARIO
+from django.contrib.auth.mixins import UserPassesTestMixin
+
+#Decorador para una VBF para controlar si el usuario es estaff
+from django.contrib.admin.views.decorators import staff_member_required
+
+
+
+@login_required
 def ListarLibros(request, nombre):
 
     # EQUIVALENTE EN SQL A UN: SELECT * FROM Libro
@@ -77,6 +92,7 @@ def DetalleLibro(request,pk):
     return render (request,'libros/detalle.html',ctx)
 
 #VBC
+
 class DetalleLibro_clase(DetailView):
     model = Libro
     template_name = 'libros/detalle_clase.html'
@@ -85,12 +101,18 @@ class DetalleLibro_clase(DetailView):
 
 #CREAR LIBRO
 
-class CrearLibro(CreateView):
+class CrearLibro(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Libro
     template_name = 'libros/crear.html'
     form_class = FormularioCrearLibro
     #success_url = reverse_lazy('libros:listar_libros'])
     success_url = reverse_lazy('libros:listar_libros',kwargs={'nombre': 'todos'},)
+
+    def test_func(self):
+        if self.request.user.is_staff:
+            return True
+        else:
+            return False
 
 class ModificarLibro(UpdateView):
     model = Libro
